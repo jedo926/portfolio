@@ -7,6 +7,7 @@ export const projects = [
     proof: "134 commits · Vitest + pgTAP + Playwright · live beta",
     repo: "https://github.com/jedo926/PassMate",
     live: "https://passmate-five.vercel.app",
+    shot: "/shots/passmate.png",
   },
   {
     name: "TrendVision1",
@@ -16,6 +17,7 @@ export const projects = [
     proof: "in production · sole owner of releases",
     repo: "https://github.com/jedo926/trend-vision1",
     live: "https://trendvision1.vercel.app",
+    shot: "/shots/trendvision1.png",
   },
   {
     name: "Amtvision OS",
@@ -24,7 +26,8 @@ export const projects = [
     stack: ["Next.js", "React 19", "TypeScript", "Claude API", "Playwright"],
     proof: "windowing engine + lexical RAG from scratch",
     repo: "https://github.com/jedo926/amtvision_os",
-    live: null,
+    live: "https://amtvisionos.vercel.app",
+    shot: "/shots/amtvision.png",
   },
   {
     name: "Sentinel Vision",
@@ -34,6 +37,7 @@ export const projects = [
     proof: "RTSP streams · 10s rolling clip buffer",
     repo: "https://github.com/jedo926/sentinel-vision",
     live: null,
+    shot: null,
   },
   {
     name: "CosmicAI",
@@ -43,6 +47,7 @@ export const projects = [
     proof: "hackathon build · interactive visualizations",
     repo: "https://github.com/jedo926/cosmicai-exoplanets",
     live: null,
+    shot: "/shots/cosmicai.png",
   },
   {
     name: "LeadGen AI",
@@ -52,6 +57,17 @@ export const projects = [
     proof: "prospect → personalize → send → track",
     repo: "https://github.com/jedo926/leadgen-ai",
     live: null,
+    shot: null,
+  },
+  {
+    name: "Meal Mate",
+    tag: "consumer app",
+    desc: "Meal planning and recipe discovery: personalized recommendations, a weekly planner with shopping lists, favorites, allergy management and nutrition tracking.",
+    stack: ["JavaScript", "Supabase", "Auth", "Dark mode"],
+    proof: "complete consumer front-end · live",
+    repo: "https://github.com/jedo926/meal-mate",
+    live: "https://mealmate-cyan.vercel.app",
+    shot: "/shots/mealmate.png",
   },
 ];
 
@@ -62,13 +78,15 @@ export const caseStudies = [
     desc: "Delivered a training platform for retail staff with quizzes and automatic certificate generation, shipped end-to-end as a solo freelancer for one of the Gulf's largest retail groups.",
     stack: ["JavaScript", "Quiz engine", "Certificate generation"],
     live: null,
+    shot: null,
   },
   {
     client: "Ministry of Education (KSA)",
-    title: "Suluk — anti-corruption learning platform",
-    desc: "Built a bilingual learning platform with dynamic exams that teaches students to recognize and reject corruption, commissioned via Al Faris International School.",
+    title: "Suluk — ethics learning platform",
+    desc: "Built a bilingual learning platform with dynamic exams teaching students to recognize and reject harmful behavior, commissioned via Al Faris International School.",
     stack: ["JavaScript", "Bilingual EN/AR", "Dynamic exams"],
-    live: null,
+    live: "https://suluk-three.vercel.app",
+    shot: "/shots/suluk.png",
   },
   {
     client: "Ragaban Law Firm",
@@ -76,13 +94,15 @@ export const caseStudies = [
     desc: "Designed and shipped the firm's web presence — services, team and contact — as a fast static Vite build.",
     stack: ["Vite", "Static site", "Multi-page"],
     live: "https://rn-coral.vercel.app",
+    shot: "/shots/ragaban.png",
   },
   {
     client: "Summit & Ivy MUN",
     title: "Conference platforms",
     desc: "Full event sites for two Model UN conferences: committees, delegate guides, schedules and secretariat pages.",
     stack: ["HTML/CSS/JS", "Event sites"],
-    live: null,
+    live: "https://summitmun.vercel.app",
+    shot: "/shots/summit.png",
   },
 ];
 

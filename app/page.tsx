@@ -86,8 +86,25 @@ export default function Home() {
         </Reveal>
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {projects.map((p, i) => (
-            <Reveal key={p.name} delay={(i % 2) * 120}>
-              <GlowCard className="flex h-full flex-col p-7">
+            <Reveal key={p.name} delay={(i % 2) * 120} className={i === 0 ? "md:col-span-2" : ""}>
+              <GlowCard className="flex h-full flex-col overflow-hidden">
+                {p.shot && (
+                  <a
+                    href={p.live ?? p.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`block overflow-hidden border-b border-line ${i === 0 ? "max-h-80" : "aspect-video"}`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.shot}
+                      alt={`${p.name} screenshot`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top opacity-80 saturate-[0.85] transition duration-500 hover:scale-[1.02] hover:opacity-100 hover:saturate-100"
+                    />
+                  </a>
+                )}
+                <div className="flex flex-1 flex-col p-7">
                 <div className="flex items-baseline justify-between">
                   <span className="card-index text-xs text-ink-dim transition-colors">
                     {String(i + 1).padStart(2, "0")}
@@ -116,6 +133,7 @@ export default function Home() {
                     </a>
                   )}
                 </div>
+                </div>
               </GlowCard>
             </Reveal>
           ))}
@@ -137,8 +155,25 @@ export default function Home() {
           </Reveal>
           <div className="mt-14 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
             {caseStudies.map((c, i) => (
-              <div key={c.client} className="group bg-paper p-8 transition-colors hover:bg-paper-raised">
+              <div key={c.client} className="group bg-paper transition-colors hover:bg-paper-raised">
                 <Reveal delay={i * 80}>
+                  {c.shot && (
+                    <a
+                      href={c.live ?? undefined}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block aspect-[21/9] overflow-hidden border-b border-line"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.shot}
+                        alt={`${c.title} screenshot`}
+                        loading="lazy"
+                        className="h-full w-full object-cover object-top opacity-75 saturate-[0.85] transition duration-500 group-hover:opacity-100 group-hover:saturate-100"
+                      />
+                    </a>
+                  )}
+                  <div className="p-8">
                   <p className="text-xs uppercase tracking-widest text-amber">{c.client}</p>
                   <h3 className="display mt-3 text-2xl">{c.title}</h3>
                   <p className="mt-3 text-sm text-ink-dim">{c.desc}</p>
@@ -154,6 +189,7 @@ export default function Home() {
                       visit live ↗
                     </a>
                   )}
+                  </div>
                 </Reveal>
               </div>
             ))}

@@ -6,3 +6,4 @@
 - Sections: hero with typewriter, skills marquee, 6 project cards (glow-on-hover, linked to GitHub repos), 4 client case studies (code kept private), experience log, skills grid, working interactive terminal (help/projects/cv/sudo hire me), CV download.
 - Live links added per user: PassMate beta (passmate-five.vercel.app), Ragaban (rn-coral.vercel.app).
 - Developed on dev branch only; verified via production build + Playwright screenshots; deployed Vercel preview.
+- Added Playwright screenshots of all live sites to project + client cards, added Meal Mate card, live links (amtvisionos, suluk-three, mealmate-cyan, summitmun), deployed suluk/mealmate/amtvision_os to Vercel prod, deployed portfolio to Vercel prod.
