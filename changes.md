@@ -7,3 +7,4 @@
 - Live links added per user: PassMate beta (passmate-five.vercel.app), Ragaban (rn-coral.vercel.app).
 - Developed on dev branch only; verified via production build + Playwright screenshots; deployed Vercel preview.
 - Added Playwright screenshots of all live sites to project + client cards, added Meal Mate card, live links (amtvisionos, suluk-three, mealmate-cyan, summitmun), deployed suluk/mealmate/amtvision_os to Vercel prod, deployed portfolio to Vercel prod.
+- Redesigned per user feedback: minimal single-column layout (Newsreader serif and IBM Plex Mono, one gold accent, numbered sections, small grayscale thumbnails, plain terminal). Removed grain, scanlines, marquee, typewriter and glow cards. Removed all emojis and em-dashes across site copy, all repo READMEs, profile README and GitHub descriptions. Removed live links for Amtvision OS and Meal Mate (user took them off hosting). Deployed to Vercel production.

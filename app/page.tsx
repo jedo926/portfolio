@@ -1,288 +1,175 @@
-import Reveal from "./components/Reveal";
-import Typer from "./components/Typer";
 import Terminal from "./components/Terminal";
-import GlowCard from "./components/GlowCard";
 import { projects, caseStudies, experience, skills, contact } from "@/lib/data";
 
-const MARQUEE = [
-  "RAG PIPELINES", "LLM FIREWALLS", "NEXT.JS", "FASTAPI", "COMPUTER VISION",
-  "LANGCHAIN", "SUPABASE", "AI AGENTS", "TYPESCRIPT", "PYTHON",
-];
+function SectionHead({ n, title }: { n: string; title: string }) {
+  return (
+    <div className="mb-10 flex items-baseline gap-4 border-b border-line pb-3">
+      <span className="mono text-xs text-gold">{n}</span>
+      <h2 className="mono text-xs uppercase tracking-[0.2em] text-ink-dim">{title}</h2>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="relative">
-      {/* ───────────────── nav ───────────────── */}
-      <nav className="fixed inset-x-0 top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 text-xs">
-          <span className="text-ink-dim">
-            <span className="text-green">➜</span> ~/tayyar
-          </span>
-          <div className="flex gap-6">
-            <a href="#work" className="text-ink-dim transition-colors hover:text-amber">work</a>
-            <a href="#clients" className="text-ink-dim transition-colors hover:text-amber">clients</a>
-            <a href="#experience" className="text-ink-dim transition-colors hover:text-amber">experience</a>
-            <a href="#terminal" className="text-ink-dim transition-colors hover:text-amber">terminal</a>
-            <a href={contact.cv} download className="text-amber">cv ↓</a>
-          </div>
-        </div>
-      </nav>
-
-      {/* ───────────────── hero ───────────────── */}
-      <header className="relative mx-auto flex min-h-svh max-w-6xl flex-col justify-center px-6 pt-20">
-        <p className="rise text-sm text-ink-dim" style={{ animationDelay: "100ms" }}>
-          $ cat introduction.txt
+    <main className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
+      {/* header */}
+      <header>
+        <p className="fade mono text-xs text-ink-dim" style={{ animationDelay: "0ms" }}>
+          Riyadh, Saudi Arabia
         </p>
-        <h1
-          className="display rise mt-6 text-[17vw] leading-[0.9] sm:text-[13vw] lg:text-[10rem]"
-          style={{ animationDelay: "250ms" }}
-        >
-          Abdulmajeed
-          <br />
-          <span className="italic text-amber">Tayyar</span>
+        <h1 className="fade mt-6 text-4xl font-medium leading-tight sm:text-5xl" style={{ animationDelay: "100ms" }}>
+          Abdulmajeed Tayyar
         </h1>
-        <div className="rise mt-8 text-base sm:text-lg" style={{ animationDelay: "450ms" }}>
-          <span className="text-ink-dim">&gt; </span>
-          <Typer />
-        </div>
-        <div className="rise mt-12 flex flex-wrap items-center gap-6 text-sm" style={{ animationDelay: "650ms" }}>
-          <span className="flex items-center gap-2 border border-line px-3 py-1.5 text-ink-dim">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green" />
-            AI intern @ Trend Micro
-          </span>
-          <a href="#work" className="link-underline">view the work</a>
-          <a href={contact.cv} download className="link-underline">download cv</a>
-        </div>
-        <p className="rise absolute bottom-8 left-6 text-xs text-ink-dim" style={{ animationDelay: "900ms" }}>
-          scroll ↓
+        <p className="fade mt-2 text-xl italic text-gold" style={{ animationDelay: "180ms" }}>
+          Full-stack and AI engineer
+        </p>
+        <p className="fade mt-6 max-w-prose text-ink-dim" style={{ animationDelay: "260ms" }}>
+          I ship production systems end to end: an enterprise RAG platform at Trend Micro,
+          client work for Al-Futtaim and Saudi Arabia&apos;s Ministry of Education, and a NASA
+          Space Apps ML project. Currently an AI and full-stack intern at Trend Micro.
+        </p>
+        <p className="fade mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ animationDelay: "340ms" }}>
+          <a className="quiet" href={`mailto:${contact.email}`}>email</a>
+          <a className="quiet" href={contact.github} target="_blank" rel="noreferrer">github</a>
+          <a className="quiet" href={contact.cv} download>download cv</a>
         </p>
       </header>
 
-      {/* ───────────────── marquee ───────────────── */}
-      <div className="overflow-hidden border-y border-line py-3" aria-hidden>
-        <div className="marquee-track">
-          {[0, 1].map((n) => (
-            <div key={n} className="flex shrink-0">
-              {MARQUEE.map((w) => (
-                <span key={w + n} className="display mx-6 whitespace-nowrap text-xl text-ink-dim">
-                  {w} <span className="text-amber-dim">✦</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ───────────────── projects ───────────────── */}
-      <section id="work" className="mx-auto max-w-6xl px-6 py-28">
-        <Reveal>
-          <p className="section-label">selected work</p>
-          <h2 className="display mt-4 max-w-2xl text-5xl sm:text-6xl">
-            Things I&apos;ve <span className="italic text-amber">shipped</span>, not just started.
-          </h2>
-          <p className="mt-4 max-w-xl text-sm text-ink-dim">
-            Every repo below is public — read the code, run the tests, judge for yourself.
-          </p>
-        </Reveal>
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <Reveal key={p.name} delay={(i % 2) * 120} className={i === 0 ? "md:col-span-2" : ""}>
-              <GlowCard className="flex h-full flex-col overflow-hidden">
+      {/* work */}
+      <section id="work" className="mt-24">
+        <SectionHead n="01" title="Selected work" />
+        <ul className="space-y-12">
+          {projects.map((p) => (
+            <li key={p.name} className="row">
+              <div className="flex items-start justify-between gap-6">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-baseline gap-x-3">
+                    <h3 className="text-2xl font-medium">{p.name}</h3>
+                    <span className="mono text-xs text-ink-dim">{p.tag}</span>
+                  </div>
+                  <p className="mt-2 text-ink-dim">{p.desc}</p>
+                  <p className="mono mt-3 text-xs text-ink-dim">{p.stack.join(" / ")}</p>
+                  <p className="mono mt-3 flex gap-5 text-sm">
+                    <a className="quiet" href={p.repo} target="_blank" rel="noreferrer">code</a>
+                    {p.live && (
+                      <a className="quiet" href={p.live} target="_blank" rel="noreferrer">live</a>
+                    )}
+                  </p>
+                </div>
                 {p.shot && (
                   <a
                     href={p.live ?? p.repo}
                     target="_blank"
                     rel="noreferrer"
-                    className={`block overflow-hidden border-b border-line ${i === 0 ? "max-h-80" : "aspect-video"}`}
+                    className="hidden shrink-0 sm:block"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={p.shot}
                       alt={`${p.name} screenshot`}
                       loading="lazy"
-                      className="h-full w-full object-cover object-top opacity-80 saturate-[0.85] transition duration-500 hover:scale-[1.02] hover:opacity-100 hover:saturate-100"
+                      width={144}
+                      height={90}
+                      className="thumb h-[90px] w-36 border border-line object-cover object-top"
                     />
                   </a>
                 )}
-                <div className="flex flex-1 flex-col p-7">
-                <div className="flex items-baseline justify-between">
-                  <span className="card-index text-xs text-ink-dim transition-colors">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="border border-line px-2 py-0.5 text-[10px] uppercase tracking-widest text-amber">
-                    {p.tag}
-                  </span>
-                </div>
-                <h3 className="display mt-4 text-3xl">{p.name}</h3>
-                <p className="mt-3 flex-1 text-sm text-ink-dim">{p.desc}</p>
-                <p className="mt-4 text-xs text-green">▸ {p.proof}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <span key={s} className="bg-paper px-2 py-0.5 text-[11px] text-ink-dim">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-6 flex gap-5 text-sm">
-                  <a href={p.repo} target="_blank" rel="noreferrer" className="link-underline">
-                    code ↗
-                  </a>
-                  {p.live && (
-                    <a href={p.live} target="_blank" rel="noreferrer" className="link-underline">
-                      live ↗
-                    </a>
-                  )}
-                </div>
-                </div>
-              </GlowCard>
-            </Reveal>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      {/* ───────────────── client case studies ───────────────── */}
-      <section id="clients" className="border-t border-line bg-paper-raised/40">
-        <div className="mx-auto max-w-6xl px-6 py-28">
-          <Reveal>
-            <p className="section-label">client work</p>
-            <h2 className="display mt-4 max-w-2xl text-5xl sm:text-6xl">
-              Real clients, real <span className="italic text-amber">deadlines</span>.
-            </h2>
-            <p className="mt-4 max-w-xl text-sm text-ink-dim">
-              Delivered as a freelancer. Code stays private out of respect for the clients —
-              the results speak on their sites.
-            </p>
-          </Reveal>
-          <div className="mt-14 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
-            {caseStudies.map((c, i) => (
-              <div key={c.client} className="group bg-paper transition-colors hover:bg-paper-raised">
-                <Reveal delay={i * 80}>
-                  {c.shot && (
-                    <a
-                      href={c.live ?? undefined}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block aspect-[21/9] overflow-hidden border-b border-line"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={c.shot}
-                        alt={`${c.title} screenshot`}
-                        loading="lazy"
-                        className="h-full w-full object-cover object-top opacity-75 saturate-[0.85] transition duration-500 group-hover:opacity-100 group-hover:saturate-100"
-                      />
-                    </a>
-                  )}
-                  <div className="p-8">
-                  <p className="text-xs uppercase tracking-widest text-amber">{c.client}</p>
-                  <h3 className="display mt-3 text-2xl">{c.title}</h3>
-                  <p className="mt-3 text-sm text-ink-dim">{c.desc}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {c.stack.map((s) => (
-                      <span key={s} className="border border-line px-2 py-0.5 text-[11px] text-ink-dim">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
+      {/* client work */}
+      <section id="clients" className="mt-24">
+        <SectionHead n="02" title="Client work" />
+        <p className="mb-10 -mt-4 text-sm text-ink-dim">
+          Delivered as a freelancer. Code stays private out of respect for the clients.
+        </p>
+        <ul className="space-y-12">
+          {caseStudies.map((c) => (
+            <li key={c.client} className="row">
+              <div className="flex items-start justify-between gap-6">
+                <div className="min-w-0">
+                  <p className="mono text-xs text-gold">{c.client}</p>
+                  <h3 className="mt-1 text-xl font-medium">{c.title}</h3>
+                  <p className="mt-2 text-ink-dim">{c.desc}</p>
+                  <p className="mono mt-3 text-xs text-ink-dim">{c.stack.join(" / ")}</p>
                   {c.live && (
-                    <a href={c.live} target="_blank" rel="noreferrer" className="link-underline mt-5 inline-block text-sm">
-                      visit live ↗
-                    </a>
+                    <p className="mono mt-3 text-sm">
+                      <a className="quiet" href={c.live} target="_blank" rel="noreferrer">visit live</a>
+                    </p>
                   )}
-                  </div>
-                </Reveal>
+                </div>
+                {c.shot && (
+                  <a
+                    href={c.live ?? undefined}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hidden shrink-0 sm:block"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.shot}
+                      alt={`${c.title} screenshot`}
+                      loading="lazy"
+                      width={144}
+                      height={90}
+                      className="thumb h-[90px] w-36 border border-line object-cover object-top"
+                    />
+                  </a>
+                )}
               </div>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      {/* ───────────────── experience ───────────────── */}
-      <section id="experience" className="mx-auto max-w-6xl px-6 py-28">
-        <Reveal>
-          <p className="section-label">experience</p>
-          <h2 className="display mt-4 text-5xl sm:text-6xl">
-            The <span className="italic text-amber">log file</span>.
-          </h2>
-        </Reveal>
-        <div className="mt-14 space-y-0">
-          {experience.map((e, i) => (
-            <Reveal key={e.role} delay={i * 100}>
-              <div className="grid gap-4 border-t border-line py-10 last:border-b md:grid-cols-[220px_1fr]">
-                <p className="text-xs text-amber">{e.when}</p>
-                <div>
-                  <h3 className="display text-3xl">{e.role}</h3>
-                  <p className="mt-1 text-sm text-ink-dim">{e.org}</p>
-                  <ul className="mt-5 space-y-2 text-sm text-ink-dim">
-                    {e.points.map((pt) => (
-                      <li key={pt} className="flex gap-3">
-                        <span className="text-green">▸</span>
-                        {pt}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
+      {/* experience */}
+      <section id="experience" className="mt-24">
+        <SectionHead n="03" title="Experience" />
+        <ul className="space-y-12">
+          {experience.map((e) => (
+            <li key={e.role}>
+              <p className="mono text-xs text-ink-dim">{e.when}</p>
+              <h3 className="mt-1 text-xl font-medium">
+                {e.role}, <span className="italic text-gold">{e.org}</span>
+              </h3>
+              <ul className="mt-3 space-y-1.5 text-ink-dim">
+                {e.points.map((pt) => (
+                  <li key={pt} className="flex gap-3">
+                    <span className="mono text-xs leading-6 text-gold">+</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+        <div className="mono mt-12 grid gap-x-8 gap-y-4 text-sm sm:grid-cols-2">
+          {Object.entries(skills).map(([group, items]) => (
+            <div key={group}>
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-dim">{group}</p>
+              <p className="mt-1 text-ink">{items.join(", ")}</p>
+            </div>
           ))}
         </div>
-        <Reveal delay={150}>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {Object.entries(skills).map(([group, items]) => (
-              <div key={group} className="border border-line p-5">
-                <p className="text-xs uppercase tracking-widest text-amber">{group}</p>
-                <p className="mt-3 text-sm text-ink-dim">{items.join(" · ")}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </section>
 
-      {/* ───────────────── terminal + contact ───────────────── */}
-      <section id="terminal" className="border-t border-line bg-paper-raised/40">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-28 lg:grid-cols-2">
-          <Reveal>
-            <p className="section-label">say hello</p>
-            <h2 className="display mt-4 text-5xl sm:text-6xl">
-              Don&apos;t take my word for it —{" "}
-              <span className="italic text-amber">type for yourself</span>.
-            </h2>
-            <p className="mt-5 max-w-md text-sm text-ink-dim">
-              This shell is real. <code className="text-amber">help</code> lists the commands,{" "}
-              <code className="text-amber">cv</code> grabs the resume,{" "}
-              <code className="text-amber">sudo hire me</code> does what it says.
-            </p>
-            <div className="mt-8 space-y-2 text-sm">
-              <p>
-                <span className="text-ink-dim">email · </span>
-                <a href={`mailto:${contact.email}`} className="link-underline">{contact.email}</a>
-              </p>
-              <p>
-                <span className="text-ink-dim">github · </span>
-                <a href={contact.github} target="_blank" rel="noreferrer" className="link-underline">
-                  github.com/jedo926
-                </a>
-              </p>
-              <p>
-                <span className="text-ink-dim">base · </span>
-                {contact.location}
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={150}>
-            <Terminal />
-          </Reveal>
-        </div>
+      {/* terminal */}
+      <section id="terminal" className="mt-24">
+        <SectionHead n="04" title="Terminal" />
+        <p className="mb-6 -mt-4 text-sm text-ink-dim">
+          A real shell. Type <span className="mono text-gold">help</span> to look around.
+        </p>
+        <Terminal />
       </section>
 
-      {/* ───────────────── footer ───────────────── */}
-      <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-6 text-xs text-ink-dim">
-          <span>© {new Date().getFullYear()} Abdulmajeed Tayyar · Riyadh</span>
-          <span>
-            built with Next.js — <span className="text-green">exit code 0</span>
-          </span>
-        </div>
+      {/* footer */}
+      <footer className="mono mt-24 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-6 text-xs text-ink-dim">
+        <span>{new Date().getFullYear()} Abdulmajeed Tayyar</span>
+        <a className="quiet" href={`mailto:${contact.email}`}>{contact.email}</a>
       </footer>
     </main>
   );

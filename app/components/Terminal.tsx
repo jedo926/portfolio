@@ -10,18 +10,15 @@ const HELP = [
   "  help         this list",
   "  whoami       who is this guy",
   "  projects     the shipped stuff",
-  "  stack        languages & tools",
-  "  experience   where I've worked",
+  "  stack        languages and tools",
+  "  experience   where I have worked",
   "  cv           download the resume (pdf)",
   "  contact      reach me",
   "  github       open my profile",
   "  clear        wipe the screen",
 ];
 
-const BANNER = [
-  "abdulmajeed tayyar — interactive shell v1.0",
-  'type "help" to look around. recruiters welcome.',
-];
+const BANNER = ["abdulmajeed tayyar, interactive shell", 'type "help" to look around.'];
 
 function run(raw: string): { out: string[]; action?: "clear" | "cv" | "github" } {
   const cmd = raw.trim().toLowerCase();
@@ -33,14 +30,14 @@ function run(raw: string): { out: string[]; action?: "clear" | "cv" | "github" }
     case "whoami":
       return {
         out: [
-          "abdulmajeed tayyar · full-stack & AI engineer · riyadh, sa",
-          "currently: AI & full-stack intern @ trend micro",
+          "abdulmajeed tayyar, full-stack and AI engineer, riyadh",
+          "currently: AI and full-stack intern at trend micro",
           "previously: freelance for al-futtaim (M&S) and KSA ministry of education",
         ],
       };
     case "projects":
       return {
-        out: projects.map((p) => `  ${p.name.padEnd(16)} ${p.desc.split(":")[0].split("—")[0].trim().slice(0, 58)}`),
+        out: projects.map((p) => `  ${p.name.padEnd(16)} ${p.desc.split(":")[0].split(",")[0].trim().slice(0, 58)}`),
       };
     case "stack":
       return {
@@ -48,7 +45,7 @@ function run(raw: string): { out: string[]; action?: "clear" | "cv" | "github" }
       };
     case "experience":
       return {
-        out: experience.flatMap((e) => [`  ${e.when} · ${e.role} — ${e.org}`]),
+        out: experience.map((e) => `  ${e.when}: ${e.role}, ${e.org}`),
       };
     case "cv":
       return { out: ["opening resume.pdf ..."], action: "cv" };
@@ -59,11 +56,11 @@ function run(raw: string): { out: string[]; action?: "clear" | "cv" | "github" }
     case "clear":
       return { out: [], action: "clear" };
     case "sudo hire me":
-      return { out: ["[sudo] permission granted. inbox: " + contact.email + " ✓"] };
+      return { out: ["[sudo] permission granted. inbox: " + contact.email] };
     case "ls":
       return { out: ["projects/  experience/  skills/  resume.pdf"] };
     default:
-      return { out: [`command not found: ${cmd} — try "help"`] };
+      return { out: [`command not found: ${cmd}. try "help"`] };
   }
 }
 
@@ -91,22 +88,15 @@ export default function Terminal() {
 
   return (
     <div
-      className="term flex h-105 flex-col text-sm"
+      className="mono cursor-text border border-line text-sm"
       onClick={() => inputRef.current?.focus()}
     >
-      <div className="flex items-center gap-2 border-b border-line px-4 py-2.5 text-xs text-ink-dim">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#3f3b32]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#3f3b32]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-amber-dim" />
-        <span className="ml-3">guest@tayyar — zsh</span>
-      </div>
-      <div ref={bodyRef} className="term-body flex-1 overflow-y-auto px-4 py-3">
+      <div ref={bodyRef} className="term-body h-80 overflow-y-auto p-4">
         {history.map((e, i) => (
           <div key={i} className="mb-1.5">
             {e.cmd !== undefined && (
               <div>
-                <span className="text-green">➜</span>{" "}
-                <span className="text-ink-dim">~</span>{" "}
+                <span className="text-gold">&gt;</span>{" "}
                 <span className="text-ink">{e.cmd}</span>
               </div>
             )}
@@ -118,14 +108,14 @@ export default function Terminal() {
           </div>
         ))}
         <div className="flex items-center gap-2">
-          <span className="text-green">➜</span>
-          <span className="text-ink-dim">~</span>
+          <span className="text-gold">&gt;</span>
           <input
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && submit()}
-            className="flex-1 bg-transparent text-ink caret-amber outline-none"
+            className="flex-1 bg-transparent text-ink outline-none"
+            style={{ caretColor: "var(--gold)" }}
             aria-label="terminal input"
             autoComplete="off"
             spellCheck={false}

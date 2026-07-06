@@ -1,10 +1,10 @@
-# Portfolio — Abdulmajeed Tayyar
+# Portfolio, Abdulmajeed Tayyar
 
-Personal portfolio of Abdulmajeed Tayyar, full-stack & AI engineer. Dark terminal-editorial design with an actual working shell recruiters can type into.
+Personal portfolio of Abdulmajeed Tayyar, full-stack and AI engineer. Minimal single-column design with a working shell recruiters can type into.
 
 ## Stack
 
-Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · fully static output
+Next.js 16, React 19, TypeScript, Tailwind CSS 4, fully static output.
 
 ## Run
 

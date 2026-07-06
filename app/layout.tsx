@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
+import { Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const serif = Instrument_Serif({
-  weight: "400",
+const serif = Newsreader({
+  weight: ["400", "500"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-serif",
 });
 
 const mono = IBM_Plex_Mono({
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   subsets: ["latin"],
   variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Abdulmajeed Tayyar — Full-Stack & AI Engineer",
+  title: "Abdulmajeed Tayyar, Full-Stack & AI Engineer",
   description:
     "Full-stack and AI engineer shipping production systems end to end: enterprise RAG at Trend Micro, client work for Al-Futtaim and Saudi Arabia's Ministry of Education, and a NASA Space Apps ML project.",
   openGraph: {
-    title: "Abdulmajeed Tayyar — Full-Stack & AI Engineer",
+    title: "Abdulmajeed Tayyar, Full-Stack & AI Engineer",
     description:
-      "RAG platforms, AI agents, computer vision and full-stack products — shipped to production.",
+      "RAG platforms, AI agents, computer vision and full-stack products, shipped to production.",
     type: "website",
   },
 };

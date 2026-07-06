@@ -2,19 +2,19 @@ export const projects = [
   {
     name: "PassMate",
     tag: "flagship",
-    desc: "No-code platform for creating, distributing and validating Apple & Google Wallet passes — from designer to a signed, scannable pass on a customer's phone.",
+    desc: "No-code platform for creating, distributing and validating Apple and Google Wallet passes, from designer to a signed, scannable pass on a customer's phone.",
     stack: ["Next.js", "TypeScript", "Supabase RLS", "Apple PassKit", "Google Wallet API"],
-    proof: "134 commits · Vitest + pgTAP + Playwright · live beta",
+    proof: "134 commits, tested with Vitest, pgTAP and Playwright, live beta",
     repo: "https://github.com/jedo926/PassMate",
     live: "https://passmate-five.vercel.app",
     shot: "/shots/passmate.png",
   },
   {
     name: "TrendVision1",
-    tag: "built @ Trend Micro",
+    tag: "built at Trend Micro",
     desc: "AI-powered cybersecurity training platform: RAG assistant grounded in product docs, dynamic assessments, voice lessons and a custom LLM firewall with secret detection.",
     stack: ["FastAPI", "LangChain", "OpenAI", "Supabase", "Railway"],
-    proof: "in production · sole owner of releases",
+    proof: "in production, sole owner of releases",
     repo: "https://github.com/jedo926/trend-vision1",
     live: "https://trendvision1.vercel.app",
     shot: "/shots/trendvision1.png",
@@ -22,11 +22,11 @@ export const projects = [
   {
     name: "Amtvision OS",
     tag: "playground",
-    desc: "A macOS-style workspace in the browser — six windowed apps behind a menu bar and dock, including an AI assistant with tools that operates the whole workspace for you.",
+    desc: "A macOS-style workspace in the browser: six windowed apps behind a menu bar and dock, including an AI assistant with tools that operates the whole workspace.",
     stack: ["Next.js", "React 19", "TypeScript", "Claude API", "Playwright"],
-    proof: "windowing engine + lexical RAG from scratch",
+    proof: "windowing engine and lexical RAG from scratch",
     repo: "https://github.com/jedo926/amtvision_os",
-    live: "https://amtvisionos.vercel.app",
+    live: null,
     shot: "/shots/amtvision.png",
   },
   {
@@ -34,7 +34,7 @@ export const projects = [
     tag: "computer vision",
     desc: "Real-time CCTV behavior detection: flags phone use with YOLOv8 and sleeping via MediaPipe face-mesh, buffers rolling clips and logs events to Supabase through FastAPI.",
     stack: ["Python", "YOLOv8", "MediaPipe", "OpenCV", "FastAPI"],
-    proof: "RTSP streams · 10s rolling clip buffer",
+    proof: "RTSP streams, 10 second rolling clip buffer",
     repo: "https://github.com/jedo926/sentinel-vision",
     live: null,
     shot: null,
@@ -42,9 +42,9 @@ export const projects = [
   {
     name: "CosmicAI",
     tag: "NASA Space Apps",
-    desc: "ML platform that hunts exoplanets in telescope light-curve data — a Random Forest trained on Kepler, K2 and TESS archives, with multi-planet detection and host-star lookups.",
+    desc: "ML platform that hunts exoplanets in telescope light-curve data: a Random Forest trained on Kepler, K2 and TESS archives, with multi-planet detection and host-star lookups.",
     stack: ["Node.js", "scikit-learn", "Random Forest", "NASA archives"],
-    proof: "hackathon build · interactive visualizations",
+    proof: "hackathon build, interactive visualizations",
     repo: "https://github.com/jedo926/cosmicai-exoplanets",
     live: null,
     shot: "/shots/cosmicai.png",
@@ -52,9 +52,9 @@ export const projects = [
   {
     name: "LeadGen AI",
     tag: "automation",
-    desc: "End-to-end B2B outreach machine: prospects from Apollo.io, an OpenAI-personalized email per lead, delivery through Gmail OAuth — tracked in a Next.js dashboard.",
+    desc: "End-to-end B2B outreach: prospects from Apollo.io, an OpenAI-personalized email per lead, delivery through Gmail OAuth, tracked in a Next.js dashboard.",
     stack: ["Next.js 16", "OpenAI", "Apollo.io", "Gmail API", "Supabase"],
-    proof: "prospect → personalize → send → track",
+    proof: "prospect, personalize, send, track",
     repo: "https://github.com/jedo926/leadgen-ai",
     live: null,
     shot: null,
@@ -64,16 +64,16 @@ export const projects = [
     tag: "consumer app",
     desc: "Meal planning and recipe discovery: personalized recommendations, a weekly planner with shopping lists, favorites, allergy management and nutrition tracking.",
     stack: ["JavaScript", "Supabase", "Auth", "Dark mode"],
-    proof: "complete consumer front-end · live",
+    proof: "complete consumer front-end",
     repo: "https://github.com/jedo926/meal-mate",
-    live: "https://mealmate-cyan.vercel.app",
+    live: null,
     shot: "/shots/mealmate.png",
   },
 ];
 
 export const caseStudies = [
   {
-    client: "Al-Futtaim · Marks & Spencer",
+    client: "Al-Futtaim, Marks & Spencer",
     title: "Corporate staff-training platform",
     desc: "Delivered a training platform for retail staff with quizzes and automatic certificate generation, shipped end-to-end as a solo freelancer for one of the Gulf's largest retail groups.",
     stack: ["JavaScript", "Quiz engine", "Certificate generation"],
@@ -82,7 +82,7 @@ export const caseStudies = [
   },
   {
     client: "Ministry of Education (KSA)",
-    title: "Suluk — ethics learning platform",
+    title: "Suluk ethics learning platform",
     desc: "Built a bilingual learning platform with dynamic exams teaching students to recognize and reject harmful behavior, commissioned via Al Faris International School.",
     stack: ["JavaScript", "Bilingual EN/AR", "Dynamic exams"],
     live: "https://suluk-three.vercel.app",
@@ -91,7 +91,7 @@ export const caseStudies = [
   {
     client: "Ragaban Law Firm",
     title: "Multi-page firm website",
-    desc: "Designed and shipped the firm's web presence — services, team and contact — as a fast static Vite build.",
+    desc: "Designed and shipped the firm's web presence, covering services, team and contact, as a fast static Vite build.",
     stack: ["Vite", "Static site", "Multi-page"],
     live: "https://rn-coral.vercel.app",
     shot: "/shots/ragaban.png",
@@ -108,17 +108,17 @@ export const caseStudies = [
 
 export const experience = [
   {
-    when: "Jun 2026 — present",
+    when: "Jun 2026 to present",
     role: "AI & Full-Stack Development Intern",
     org: "Trend Micro",
     points: [
-      "Independently designed and shipped TrendVision1 — frontend, backend, database and AI architecture.",
+      "Independently designed and shipped TrendVision1: frontend, backend, database and AI architecture.",
       "RAG assistant over internal docs: LangChain agents, OpenAI embeddings, Docling/MarkItDown ingestion.",
       "Sole owner of production: releases, monitoring and iteration on Vercel, Railway and Supabase.",
     ],
   },
   {
-    when: "2025 — present",
+    when: "2025 to present",
     role: "Freelance Full-Stack & AI Developer",
     org: "Independent",
     points: [
